@@ -1,0 +1,306 @@
+/*********************************************
+* base style for wrapper 
+**********************************************/
+.container{
+  width: 90%;
+  margin: auto;
+  max-width: 1200px;
+}
+
+/*********************************************
+* Header Area base style 
+**********************************************/
+#header h1{
+    padding: 20px 0;
+}
+#header form{
+  text-align: right;
+  font-size: .98em;
+  padding-bottom: 10px;
+}
+#header form label{
+  background-color:  #082947;
+  border-radius: 5px;
+  cursor: pointer;
+}
+#header form input[type="checkbox"]{
+  margin-right: 5px;
+}
+#header form label,
+#header form input[type="checkbox"]{ 
+  color: #fff;
+}
+
+/* media query for header 
+**********************************************/
+@media all and (max-width: 768px)
+{
+  #header h1{
+    font-size: 1.5em;
+  }
+  #header form{
+    text-align: center;
+  }
+  #header form label
+  {
+    display: inline-block;
+    width: 100%;
+  }
+}
+@media all and (min-width: 769px)
+{
+  #header form label,
+  #header form input[type="checkbox"]{
+    padding: 10px;
+  }
+}
+
+
+/*********************************************
+* Filter Area base style 
+**********************************************/
+#filter-area{
+  background-color: #082947;
+  padding: 10px 0;
+  color: #fff;
+}
+
+#filter-area form > div{
+  margin: 20px 0;
+}
+
+.filterby{
+  background-color: #FFA100;
+}
+
+.filter-by-option-container,
+.filter-by-option-container select{
+  background-color: #FFA100;
+}
+.filter-by-option-container label{
+  float: left;
+  color: #082a47;
+  vertical-align: text-bottom;
+}
+.filter-by-option-container select{
+  float: right;
+  width: 60%;
+  color: #fff;
+}
+.filter-by-option-container::after
+{
+  content: '';
+  display: block;
+  clear: both;
+}
+
+.filter-text-container{
+  background-color: #fff;
+}
+.filter-text-container input[type="text"]{
+  width: 70%;
+}
+.filter-text-container input[type="submit"]{
+  width: 30%;
+  background-color: #FFA100;
+  color: #fff;
+  cursor: pointer;
+  transition: all .65s;
+}
+.filter-text-container input[type="submit"]:hover
+{
+  color: #ccc;
+  letter-spacing: 1.2px;
+}
+#filter-area .filterby label{
+  padding: 4px 1%; 
+}
+
+#filter-area form input,
+#filter-area form select{
+  height: 30px;
+  border-radius: 0px;
+}
+
+#filter-area .sortby select{
+  margin: 5px;
+}
+#filter-area .sortby select{
+  width: 30%;
+}
+#filter-area .sortby select:last-child{
+  width: 40%;
+}
+
+
+/* media query for Filter Area  
+**********************************************/
+@media all and (max-width: 768px)
+{
+  #filter-area .sortby{
+    text-align: center;
+  }
+}
+
+@media all and (min-width: 769px)
+{
+  .filterby > div{
+    display: inline-block;
+    vertical-align: top;
+    width: 49%;
+  }
+  .filterby > div:first-child{
+    margin-right: 1%;
+  }
+  .filterby > div:last-child{
+    margin-left:-1%;
+  }
+
+  #filter-area .sortby select{
+    width: 20%;
+  }
+  #filter-area .sortby select:last-child{
+    width: 20%;
+  }
+
+}
+
+@media all and (min-width: 1200px)
+{
+  
+}
+
+/*********************************************
+* product list base style 
+**********************************************/
+#product-list h2{
+  border-bottom: 5px solid #FFA100;
+  text-align: center;
+  letter-spacing: 1.2px;
+  padding: 10px 0;  
+}
+
+#product-list .card{
+  font-size: .98em;
+  margin: 10px 1%;
+  transition: all .35s;
+  border: 1px solid #eee;
+}
+
+#product-list .product-image-name-price-container
+{
+  text-align: center;
+}
+
+#product-list .product-image-name-price-container > div{
+  display: inline-block;
+  vertical-align: top;
+  margin-right: 2%;
+}
+
+#product-list .product-image-name-price-container > div:first-child{
+  border:1px solid #eee;
+  height: 80px;
+  margin: 10px 5px;
+}
+#product-list .product-image-name-price-container > div:last-child{
+  width: 50%;
+}
+
+.product-name-price-container span{
+  display: block;
+}
+
+#product-list .card .product-name span:first-child,
+#product-list .card .product-price span:first-child{
+  color: #082947;
+  letter-spacing: 1.1px;
+}
+
+#product-list .veiw-more{
+  padding:5px;
+  margin: 10px 0; 
+  background-color: #FFA100;
+  color: #fff;
+  display: inline-block;
+  border-radius: 5px; 
+  cursor: pointer;
+}
+#product-list .product-more-info li span:first-child{
+  color: #111;
+}
+
+.card .product-more-info{
+  background-color: #eee;
+  max-height: 0;
+  overflow: hidden;
+  transform: scale(.5);
+  transition: all .65s;
+}
+
+.card input{
+  display: none;
+}
+
+.card input:checked ~ .product-more-info{
+  max-height: 65.7em;
+  transform: scale(1);
+  border: 1px solid #eee;
+}
+
+@media all and (max-width: 768px)
+{
+  #product-list .product-image-name-price-container > div{
+    text-align: center;
+  }
+  #product-list .product-image-name-price-container > div:first-child{
+    width: 40%;
+  }
+  #product-list .product-image-name-price-container > div:last-child{
+    width: 50%;
+  }
+  #product-list .card .product-name span:first-child,
+  #product-list .card .product-price span:first-child,
+  #product-list .card .product-more-info li span:first-child{
+    font-size: 1.2em;
+  }
+}
+@media all and (min-width: 769px)
+{
+  #product-list .card{
+    display: inline-block;
+    vertical-align: top;
+    width: 30%;
+  }
+
+  #product-list .product-image-name-price-container > div:first-child{
+    width: 40%;
+  }
+  #product-list .product-image-name-price-container > div:last-child{
+    width: 50%;
+  }
+
+  #product-list .card .product-name span:first-child,
+  #product-list .card .product-price span:first-child,
+  #product-list .card .product-more-info li span:first-child{
+    text-align: center;
+    font-size: 1em;
+  }
+
+  #product-list .card .product-name span:last-child,
+  #product-list .card .product-price span:last-child,
+  #product-list .card .product-more-info li span:last-child{
+    text-align: center;
+  }
+
+}
+
+@media all and (min-width: 1200px)
+{
+  #product-list .card .product-name span:first-child,
+  #product-list .card .product-price span:first-child,
+  #product-list .card .product-more-info li span:first-child{
+    font-size: 1.3em;
+  }
+}
+
