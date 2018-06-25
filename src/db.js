@@ -6,7 +6,7 @@ export const data = [
         "product_code": "CP01",
         "delivery_address": "1 Bridge Road, SE1 1AA, London",
         "delivery_date": "2018-06-01 12:00:00",
-        "order_date": "2018-05-28 12:00:00"
+        "order_date": "2018-09-28 12:00:00"
     },
     {
         "total_price": 10.55,

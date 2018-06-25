@@ -1,19 +1,20 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 
-class FilterSection extends Component{
+class FilterSection extends React.Component{
   
   state = {
-    searchText : '',
-    filterOption : '',
     placeHolderText : 'product name'
   }
 
 
-  searchByOptionchange = () => 
-  this.setState({
-    placeHolderText : this.filterby.value 
-  })
+  searchByOptionchange = () => {
+    this.setState({
+      placeHolderText : this.filterby.value 
+    });
+    this.searchText.value = '';
+    this.searchText.focus();
+  }
 
   sortList = () => {
     this.props.sortHandler(this.sortby.value , this.orderDirection.value)

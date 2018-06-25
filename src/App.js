@@ -1,11 +1,11 @@
-import React, { Component } from 'react';
+import React  from 'react';
 import './App.css';
 import { data } from './db.js';
 import Header from './components/Header.js';
 import FilterSection from './components/FilterSection.js';
 import ProductList from './components/ProductList.js';
 
-class OrderApp extends Component {
+class OrderApp extends React.Component {
 
   state = {
     orderlist :  data,
@@ -13,13 +13,11 @@ class OrderApp extends Component {
     sortOption : "order_date",
   }
 
-  componentDidMount = () => {
-    this.sortOrder();
-  }
+  componentDidMount = () => this.sortOrder();
+  componentWillUnmount = () => this.sortOrder = null;
 
   sortOrder = ( option = this.state.sortOption  , orderDirection = this.state.sortOrder) => {
     let sortData = this.state.orderlist ;
-    // let option = this.state.sortOption
     this.setState({
       sortOrder: orderDirection,
       sortOption: option
@@ -45,9 +43,10 @@ class OrderApp extends Component {
     this.setState({ orderlist : sortData });
   }
 
-  filter = (searchBy , searchByValue) => {
+  filterOrder = (searchBy , searchedValue = "") => {
       let matchData = [] ;
-
+      let date = new Date();
+      date -= 31;
       if (searchBy === "product name") {
           searchBy = "product";
 
@@ -55,31 +54,37 @@ class OrderApp extends Component {
         searchBy = "product_code";
       }else if( searchBy === "address"){
         searchBy = "delivery_address"
+      }else {
+        searchBy = "order_date"
       }
 
-    if (this.state.orderlist && this.state.orderlist instanceof Array) {
+    if (this.state.orderlist && this.state.orderlist instanceof Array && searchBy !== "order_date") {
       for(let list of this.state.orderlist){
-          if (searchByValue.toLowerCase() === list[searchBy].toLowerCase()) {
+          if (searchedValue.toLowerCase().trim() === list[searchBy].toLowerCase().trim()) {
               matchData.push(list);
           } 
-      }
-        if (matchData.length !== 0 ) {
-          this.setState({ orderlist : matchData});
-        }else{
-           // product-list.innerHTML = '<div style="font-size: 2em;">sorry not available</div>' ;
-        }
+      }   
+    }else{      
+      for(let list of this.state.orderlist){
+          if ( Date.parse(list[searchBy]) > date ){
+              matchData.push(list);
+          } 
+      }   
+    }
 
-    }  
+    if (matchData.length !== 0 ) {
+          this.setState({ orderlist : matchData});
+        }  
   }
 
-
+  dataRebase = () => this.setState({ orderlist: data });
 
   render() {
     return (
       <div>
-        <Header />
-        <FilterSection sortHandler = { this.sortOrder } filterHandler = { this.filter } />
-        <ProductList data = { this.state.orderlist } />
+        <Header showOldOrders = {this.filterOrder } dataRebase = { this.dataRebase } />
+        <FilterSection sortHandler = { this.sortOrder } filterHandler = { this.filterOrder } />
+        <ProductList data = { this.state.orderlist } dataRebase = { this.dataRebase }/>
       </div>
     );
   }

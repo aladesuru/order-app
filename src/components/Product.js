@@ -21,6 +21,7 @@ const Product = (props) =>
           <li><span>Quantity : </span><span>{props.quantity}</span></li>
           <li><span>Order Date : </span><span>{props.orderDate}</span></li>
           <li><span>Delivery Date : </span><span>{props.deliveryDate}</span></li>
+          <li><span>Product Delivered : </span><span>{props.delivered}</span></li>
         </ul>
 </div> 
 Product.propTypes = {
@@ -31,7 +32,8 @@ Product.propTypes = {
   quantity: PropTypes.number.isRequired,
   deliveryAddress : PropTypes.string.isRequired,
   deliveryDate: PropTypes.string.isRequired,
-  orderDate: PropTypes.string.isRequired
+  orderDate: PropTypes.string.isRequired,
+  delivered: PropTypes.string.isRequired
 }
 
 export default Product ;

@@ -12,6 +12,7 @@
 **********************************************/
 #header h1{
     padding: 20px 0;
+    letter-spacing: 1.4px;
 }
 #header form{
   text-align: right;
