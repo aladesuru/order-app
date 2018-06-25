@@ -26,16 +26,20 @@ class OrderApp extends React.Component {
     if (this.state.orderlist instanceof Array) {
       if (orderDirection === 'desc') {
           if (option === "order_date") {
-            sortData.sort((sortOptionValue1 , sortOptionValue2) => Date.parse(sortOptionValue2[option]) - Date.parse(sortOptionValue1[option]));
+            sortData.sort((sortOptionValue1 , sortOptionValue2) => 
+              Date.parse(sortOptionValue2[option]) - Date.parse(sortOptionValue1[option]));
           } else {
-            sortData.sort((sortOptionValue1 , sortOptionValue2) => sortOptionValue2[option] - sortOptionValue1[option]);
+            sortData.sort((sortOptionValue1 , sortOptionValue2) => 
+              sortOptionValue2[option] - sortOptionValue1[option]);
           }
 
         }else {
           if (option === "order_date") {
-            sortData.sort((sortOptionValue1 , sortOptionValue2) => Date.parse(sortOptionValue1[option]) - Date.parse(sortOptionValue2[option]));
+            sortData.sort((sortOptionValue1 , sortOptionValue2) => 
+              Date.parse(sortOptionValue1[option]) - Date.parse(sortOptionValue2[option]));
           } else {
-            sortData.sort((sortOptionValue1 , sortOptionValue2) => sortOptionValue1[option] - sortOptionValue2[option]);
+            sortData.sort((sortOptionValue1 , sortOptionValue2) => 
+              sortOptionValue1[option] - sortOptionValue2[option]);
           }
       }
     } 
@@ -46,7 +50,6 @@ class OrderApp extends React.Component {
   filterOrder = (searchBy , searchedValue = "") => {
       let matchData = [] ;
       let date = new Date();
-      date -= 31;
       if (searchBy === "product name") {
           searchBy = "product";
 

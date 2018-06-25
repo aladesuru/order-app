@@ -4,8 +4,7 @@ import PropTypes from 'prop-types';
 class Header extends React.Component{
 
   state = {
-    toggleList : true,
-    unchecked : false
+    toggleList : true
   }
 
   showOldOrders = () => {

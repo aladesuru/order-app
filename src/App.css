@@ -96,7 +96,7 @@
 }
 
 .filter-text-container{
-  background-color: #fff;
+  /*background-color: transparent;*/
 }
 .filter-text-container input[type="text"]{
   width: 70%;
@@ -191,6 +191,7 @@
 #product-list .product-image-name-price-container
 {
   text-align: center;
+  height: 140px;
 }
 
 #product-list .product-image-name-price-container > div{
@@ -229,6 +230,13 @@
 }
 #product-list .product-more-info li span:first-child{
   color: #111;
+}
+
+#product-list .green{
+  color: #105202;
+}
+#product-list .red{
+  color: #da3508;
 }
 
 .card .product-more-info{

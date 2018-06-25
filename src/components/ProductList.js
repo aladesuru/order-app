@@ -15,7 +15,10 @@ class ProductList extends React.Component{
         <div className="container">
         {
           this.props.data.map((product , index) => {
-            Date.parse(product.delivery_date) < Date.parse(date) ? delivered='Yes' : delivered='No';
+            Date.parse(product.delivery_date) < Date.parse(date) ? 
+            delivered= <span className="green">Yes</span> : 
+            delivered= <span className="red">No</span>;
+
             return(
               <Product 
               key = { index }
