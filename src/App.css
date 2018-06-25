@@ -296,7 +296,6 @@
   #product-list .card .product-more-info li span:last-child{
     text-align: center;
   }
-
 }
 
 @media all and (min-width: 1200px)
@@ -304,7 +303,7 @@
   #product-list .card .product-name span:first-child,
   #product-list .card .product-price span:first-child,
   #product-list .card .product-more-info li span:first-child{
-    font-size: 1.3em;
+    font-size: 1.2em;
   }
 }
 

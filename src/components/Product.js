@@ -32,8 +32,7 @@ Product.propTypes = {
   quantity: PropTypes.number.isRequired,
   deliveryAddress : PropTypes.string.isRequired,
   deliveryDate: PropTypes.string.isRequired,
-  orderDate: PropTypes.string.isRequired,
-  delivered: PropTypes.string.isRequired
+  orderDate: PropTypes.string.isRequired
 }
 
 export default Product ;
