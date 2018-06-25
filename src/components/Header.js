@@ -22,12 +22,12 @@ class Header extends React.Component{
     if (this.state.toggleList) {
       this.listBtn = <label><input type="checkbox" 
                         onClick = { this.showOldOrders }
-                        />Show orders older than a month
+                        />Show orders older than a month ?
                       </label>
     } else {
       this.listBtn = <label><input type="checkbox"  
                         onClick = { this.showAllorder }
-                        />Order older than a month, back to all orders?
+                        />Order older than a month, back to all orders ?
                       </label>
     }
 

@@ -76,7 +76,7 @@ class OrderApp extends React.Component {
     }
 
     if (matchData.length !== 0 ) {
-          this.setState({ orderlist : matchData});
+          this.setState({orderlist : matchData});
         }  
   }
 
