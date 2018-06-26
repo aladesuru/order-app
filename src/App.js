@@ -49,7 +49,10 @@ class OrderApp extends React.Component {
       }
     } 
 
-    this.setState({ orderlist : sortData });
+    this.setState({ 
+      orderlist : sortData,
+      toggleData : true 
+    });
   }
 
   filterBy = (searchBy , searchedValue = "") => {
