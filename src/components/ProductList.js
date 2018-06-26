@@ -4,19 +4,19 @@ import Product from './Product.js';
 
 let date = new Date();
 let delivered = '';
-let searchData = " ";
+let data = " ";
 const ProductList = (props) => {
   if (props.toggleData) {
-      searchData = props.sortedData
+      data = props.sortedData
   } else {
-      searchData = props.matchData
+      data = props.matchData
   }
 
   return(
     <section id="product-list">
       <div className="container">
       {
-        searchData.map((product , index) => {
+        data.map((product , index) => {
           Date.parse(product.delivery_date) < Date.parse(date) ? 
           delivered= <span className="green">Yes</span> : 
           delivered= <span className="red">No</span>;

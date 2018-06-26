@@ -1,13 +1,13 @@
 import React  from 'react';
 import './App.css';
-import { data } from './db.js';
+import { data } from './db.js'; 
 import Header from './components/Header.js';
 import FilterSection from './components/FilterSection.js';
 import ProductList from './components/ProductList.js';
 
 class OrderApp extends React.Component {
 
-  state = {
+  state = { 
     orderlist :  data,
     searchData : [],
     sortOrder : "desc",
@@ -23,7 +23,7 @@ class OrderApp extends React.Component {
 
   sortBy = ( option = this.state.sortBY  , orderDirection = this.state.sortOrder) => {
     let sortData = this.state.orderlist ;
-    this.setState({
+    this.setState({ 
       sortOrder: orderDirection,
       sortBY: option
     })
