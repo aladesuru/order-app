@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 class Header extends React.Component{
-
   state = {
     toggleList : true
   }
@@ -13,12 +12,10 @@ class Header extends React.Component{
   } 
   
   showAllorder = () => {
-    this.props.dataRebase();
     this.setState({ toggleList: true });
   }
 
 	render(){
-
     if (this.state.toggleList) {
       this.listBtn = <label><input type="checkbox" 
                         onClick = { this.showOldOrders }
@@ -45,8 +42,8 @@ class Header extends React.Component{
 }
 
 Header.propTypes = {
-  showOldOrders: PropTypes.func.isRequired,
-  dataRebase : PropTypes.func.isRequired
+  showOldOrders: PropTypes.func.isRequired
+  // dataRebase : PropTypes.func.isRequired
 }
 
 export default Header ;

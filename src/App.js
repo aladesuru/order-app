@@ -9,14 +9,15 @@ class OrderApp extends React.Component {
 
   state = {
     orderlist :  data,
+    searchData : [],
     sortOrder : "desc",
-    sortOption : "order_date",
+    sortBY : "order_date",
+    searchValue: "",
+    searchBy: "",
+    toggleData : true
   }
-
-  componentDidMount = () => this.sortOrder();
-  componentWillUnmount = () => this.sortOrder = null;
-
-  sortOrder = ( option = this.state.sortOption  , orderDirection = this.state.sortOrder) => {
+              
+  sortBy = ( option = this.state.sortOption  , orderDirection = this.state.sortOrder) => {
     let sortData = this.state.orderlist ;
     this.setState({
       sortOrder: orderDirection,
@@ -47,7 +48,7 @@ class OrderApp extends React.Component {
     this.setState({ orderlist : sortData });
   }
 
-  filterOrder = (searchBy , searchedValue = "") => {
+  filterBy = (searchBy , searchedValue = "") => {
       let matchData = [] ;
       let date = new Date();
       if (searchBy === "product name") {
@@ -76,7 +77,10 @@ class OrderApp extends React.Component {
     }
 
     if (matchData.length !== 0 ) {
-          this.setState({orderlist : matchData});
+          this.setState({
+            searchData : matchData,
+            toggleData : false
+          });
         }  
   }
 
@@ -85,9 +89,12 @@ class OrderApp extends React.Component {
   render() {
     return (
       <div>
-        <Header showOldOrders = {this.filterOrder } dataRebase = { this.dataRebase } />
-        <FilterSection sortHandler = { this.sortOrder } filterHandler = { this.filterOrder } />
-        <ProductList data = { this.state.orderlist } dataRebase = { this.dataRebase }/>
+        <Header showOldOrders = {this.filterBy } />
+        <FilterSection sortBy = { this.sortBy } filterBy = { this.filterBy } />
+        <ProductList 
+          sortedData = { this.state.orderlist }  
+          matchData = { this.state.searchData }
+          toggleData = { this.state.toggleData } />
       </div>
     );
   }

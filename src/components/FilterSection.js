@@ -16,17 +16,15 @@ class FilterSection extends React.Component{
     this.searchText.focus();
   }
 
-  sortList = () => {
-    this.props.sortHandler(this.sortby.value , this.orderDirection.value)
+  sortBy = () => {
+    this.props.sortBy(this.sortby.value , this.orderDirection.value)
   }
 
 
-  searchlist = e => {
+  filterBy = e => {
      e.preventDefault();
-    this.props.filterHandler(this.filterby.value , this.searchText.value)
+    this.props.filterBy(this.filterby.value , this.searchText.value)
   }
-
-
 
   render() {
     return(
@@ -47,7 +45,7 @@ class FilterSection extends React.Component{
             <div className="filter-text-container">
               <input type="text" name="" placeholder={`Enter ${this.state.placeHolderText} here`} 
               ref={(input) => this.searchText = input }/>
-              <input type="submit"  value="Search" onClick={ this.searchlist } />
+              <input type="submit"  value="Search" onClick={ this.filterBy } />
             </div>
 
           </div>
@@ -55,13 +53,13 @@ class FilterSection extends React.Component{
           <div className="sortby">
             <label htmlFor="filter">Sort BY </label>
             <select id="filter" ref={(select) => this.sortby = select } 
-              onChange={this.sortList }>
+              onChange={this.sortBy }>
               <option value="order_date">Order Date</option>
               <option value="total_price">Price</option>
             </select>
 
              <select ref={(select) => this.orderDirection = select } 
-              onChange={this.sortList }>
+              onChange={this.sortBy }>
               <option value="desc">Desc</option>
               <option value="Ascn">Asc</option>
              </select>
@@ -74,7 +72,7 @@ class FilterSection extends React.Component{
 }
 
 FilterSection.propTypes = {
-  sortHandler: PropTypes.func.isRequired,
-  filterHandler: PropTypes.func.isRequired
+  sortBy: PropTypes.func.isRequired,
+  filterBy: PropTypes.func.isRequired
 }
 export default FilterSection;
