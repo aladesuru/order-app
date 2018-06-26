@@ -11,7 +11,8 @@ class Header extends React.Component{
     this.setState({ toggleList: false });
   } 
   
-  showAllorder = () => {
+  showAllOrder = () => {
+    this.props.showAllOrder();
     this.setState({ toggleList: true });
   }
 
@@ -23,7 +24,7 @@ class Header extends React.Component{
                       </label>
     } else {
       this.listBtn = <label><input type="checkbox"  
-                        onClick = { this.showAllorder }
+                        onClick = { this.showAllOrder }
                         />Order older than a month, back to all orders ?
                       </label>
     }
@@ -42,8 +43,8 @@ class Header extends React.Component{
 }
 
 Header.propTypes = {
-  showOldOrders: PropTypes.func.isRequired
-  // dataRebase : PropTypes.func.isRequired
+  showOldOrders: PropTypes.func.isRequired,
+  showAllOrder : PropTypes.func.isRequired
 }
 
 export default Header ;

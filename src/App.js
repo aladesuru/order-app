@@ -17,11 +17,15 @@ class OrderApp extends React.Component {
     toggleData : true
   }
               
-  sortBy = ( option = this.state.sortOption  , orderDirection = this.state.sortOrder) => {
+  componentDidMount = () => this.sortBy() 
+
+  componentWillUnmount = () => this.sortBy = null;
+
+  sortBy = ( option = this.state.sortBY  , orderDirection = this.state.sortOrder) => {
     let sortData = this.state.orderlist ;
     this.setState({
       sortOrder: orderDirection,
-      sortOption: option
+      sortBY: option
     })
 
     if (this.state.orderlist instanceof Array) {
@@ -70,7 +74,7 @@ class OrderApp extends React.Component {
       }   
     }else{      
       for(let list of this.state.orderlist){
-          if ( Date.parse(list[searchBy]) > date ){
+          if ( Date.parse(list[searchBy]) > date.setMonth(date.getMonth() + 1) ){
               matchData.push(list);
           } 
       }   
@@ -84,12 +88,10 @@ class OrderApp extends React.Component {
         }  
   }
 
-  dataRebase = () => this.setState({ orderlist: data });
-
   render() {
     return (
       <div>
-        <Header showOldOrders = {this.filterBy } />
+        <Header showOldOrders = {this.filterBy } showAllOrder = { this.sortBy }/>
         <FilterSection sortBy = { this.sortBy } filterBy = { this.filterBy } />
         <ProductList 
           sortedData = { this.state.orderlist }  
