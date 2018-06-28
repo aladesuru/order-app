@@ -32,7 +32,7 @@ class Header extends React.Component{
 		return(
       <header id="header"> 
         <div className="container">
-          <h1>List Of Ordered Product</h1>
+          <h1>List of Ordered Product</h1>
           <form id="settings">
             {this.listBtn }
           </form>

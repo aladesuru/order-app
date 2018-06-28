@@ -99,7 +99,8 @@ class OrderApp extends React.Component {
         <ProductList 
           sortedData = { this.state.orderlist }  
           matchData = { this.state.searchData }
-          toggleData = { this.state.toggleData } />
+          toggleData = { this.state.toggleData } 
+        />
       </div>
     );
   }

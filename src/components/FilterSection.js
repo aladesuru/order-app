@@ -44,7 +44,7 @@ class FilterSection extends React.Component{
 
             <div className="filter-text-container">
               <input type="text" name="" placeholder={`Enter ${this.state.placeHolderText} here`} 
-              ref={(input) => this.searchText = input }/>
+              ref={(input) => this.searchText = input } required />
               <input type="submit"  value="Search" onClick={ this.filterBy } />
             </div>
 

@@ -1,0 +1,132 @@
+Create a basic "Your orders" app in React.js and ES6
+
+The app must have the following functionality:
+ * Each order consists of:
+   * A product name and code
+   * A delivery address (single line)
+   * A quantity and total price
+   * An order date
+   * Whether it has been delivered or not
+ * There is a list view showing the product name and total price
+   * It is paginated
+   * By default, it's ordered by order date, descending (newest first)
+   * You can order by order date ascending or descending
+   * You can order by total price, ascending or descending
+ * You can see the rest of the details if you click on a product
+   * It can be a popup, expando, etc. Your choice.
+   * It should show all of the rest of the details not visible in the list view
+ * You must be able to search (single search box)
+   * By product name
+   * By product code
+   * By delivery address
+ * There is a settings page with the following settings, which persist between navigation:
+   * Checkbox: show orders older than a month
+   * Textbox: current address
+ * You can deep-link
+   * To a particular page in the list view
+   * To particular expanded product in the list view
+   * To the settings page
+
+When you're done, create a Git bundle, and send it us:
+`git bundle create <your-name>.bundle HEAD`
+
+What we're looking for:
+ * Take 2 or 3 hours at most
+ * You don't have to finish all of the requirements, but most of them, and at least one from each section/functionality
+ * A small explanation on how would you implement the ones you didn't have time for
+ * A small list of assumptions you made about the app, product, database, API, etc
+ * Document how to build/run the app
+ * Use a static set of data, but describe how would you integrate with an API
+ * How you structure the React project
+ * Which, if any, patterns, frameworks, packages, do you use
+ * How do you model the data and behaviour
+ * Which tests do you write
+ * We will do code review in the live interview, and discuss how would we expand the product further, with more requirements
+
+Below is some sample schema data, for your convenience. Feel free to use it, or make up your own schema/data:
+[
+    {
+        "total_price": 20,
+        "quantity": 2,
+        "product": "Copier Paper",
+        "delivery_address": "1 Bridge Road, SE1 1AA, London",
+        "delivery_date": "2018-06-01 12:00:00"
+    },
+    {
+        "total_price": 10.55,
+        "quantity": 4,
+        "product": "Blue pens, pack of 5",
+        "delivery_address": "1 Bridge Road, SE1 1AA, London",
+        "delivery_date": "2018-06-01 13:00:00"
+    },
+    {
+        "total_price": 125.62,
+        "quantity": 1,
+        "product": "Learn React.js in 10 minutes",
+        "delivery_address": "1 Bridge Road, SE1 1AA, London",
+        "delivery_date": "2018-05-01 12:00:00"
+    },
+    {
+        "total_price": 200,
+        "quantity": 5,
+        "product": "Whiteboard",
+        "delivery_address": "3 Tower Avenue, W1W 2BB, London",
+        "delivery_date": "2018-04-01 12:00:00"
+    },
+    {
+        "total_price": 15,
+        "quantity": 1000,
+        "product": "Push-pins, pack of 2",
+        "delivery_address": "3 Tower Avenue, W1W 2BB, London",
+        "delivery_date": "2018-06-01 23:00:00"
+    },
+    {
+        "total_price": 3.5,
+        "quantity": 1,
+        "product": "Whiteboard eraser",
+        "delivery_address": "3 Tower Avenue, W1W 2BB, London",
+        "delivery_date": "2018-06-02 12:00:00"
+    },
+    {
+        "total_price": 10,
+        "quantity": 1,
+        "product": "Copier Paper",
+        "delivery_address": "1 Bridge Road, SE1 1AA, London",
+        "delivery_date": "2018-06-03 12:00:00"
+    },
+    {
+        "total_price": 10.55,
+        "quantity": 4,
+        "product": "Black pens, pack of 5",
+        "delivery_address": "1 Bridge Road, SE1 1AA, London",
+        "delivery_date": "2018-06-03 13:00:00"
+    },
+    {
+        "total_price": 335.74,
+        "quantity": 1,
+        "product": "Learn ES6 in 5 minutes",
+        "delivery_address": "1 Bridge Road, SE1 1AA, London",
+        "delivery_date": "2018-05-03 12:00:00"
+    },
+    {
+        "total_price": 50,
+        "quantity": 2,
+        "product": "Blackboard",
+        "delivery_address": "3 Tower Avenue, W1W 2BB, London",
+        "delivery_date": "2018-04-03 12:00:00"
+    },
+    {
+        "total_price": 30,
+        "quantity": 2000,
+        "product": "Push-pins, pack of 2",
+        "delivery_address": "3 Tower Avenue, W1W 2BB, London",
+        "delivery_date": "2018-06-03 23:00:00"
+    },
+    {
+        "total_price": 2.5,
+        "quantity": 1,
+        "product": "Blackboard eraser",
+        "delivery_address": "3 Tower Avenue, W1W 2BB, London",
+        "delivery_date": "2018-06-04 12:00:00"
+    }
+]
