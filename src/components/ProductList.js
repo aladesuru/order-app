@@ -8,14 +8,13 @@ class ProductList extends React.Component{
 
   state = {
     currentPage : 1,
-    itemsPerPage : 3
+    itemsPerPage : 6
   }
 
   handler = (e) => {
     this.setState({
       currentPage : Number(e.target.id)
     });
-    console.log(e.target.id)
   }
 
   render() {
@@ -33,17 +32,16 @@ class ProductList extends React.Component{
 
     const renderPageNumber = pageNumber.map((pageNumber) =>{
       return(
-          <span 
+          <span className="pagenumber"
             key={pageNumber} 
             id={pageNumber} 
             onClick= { this.handler }
           > 
-           {pageNumber} 
+            {pageNumber} 
           </span>
         );
     });
 
-    console.log(pageNumber);
     return(
       <section id="product-list">
         <div className="container">

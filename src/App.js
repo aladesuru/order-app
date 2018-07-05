@@ -60,7 +60,6 @@ class OrderApp extends React.Component {
       let date = new Date();
       if (searchBy === "product name") {
           searchBy = "product";
-
       }else if (searchBy === "code"){
         searchBy = "product_code";
       }else if( searchBy === "address"){

@@ -252,6 +252,15 @@
   border: 1px solid #eee;
 }
 
+.pagenumber{
+  padding: 5px 10px;
+  display: inline-block;
+  color: #eee;
+  background-color: #082947;
+  margin: 10px 5px;
+  cursor: pointer;
+}
+
 @media all and (max-width: 768px)
 {
   #product-list .product-image-name-price-container > div{
